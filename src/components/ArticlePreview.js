@@ -71,13 +71,7 @@ const ArticlePreview = ({ title, path, image, alt, summary, tags }) => (
                 {title}
               </Heading>
             </Link>
-            {/* <Text
-              fontSize="lg"
-              color={mode("gray.600", "gray.400")}
-              lineHeight="tall"
-              dangerouslySetInnerHTML={{ __html: summary }}
-            ></Text> */}
-            <p dangerouslySetInnerHTML={{ __html: summary }}></p>
+            <p dangerouslySetInnerHTML={{ __html: summary }} />
           </Box>
         </Flex>
       </Grid>

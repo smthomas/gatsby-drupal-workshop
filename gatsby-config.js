@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `SiteForge Example`,
+    title: `My News Site`,
     siteUrl: `https://www.yourdomain.tld`
   },
   plugins: [

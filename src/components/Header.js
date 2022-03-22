@@ -9,7 +9,7 @@ import {
   Heading,
 } from "@chakra-ui/react"
 import { FaMoon, FaSun } from "react-icons/fa"
-import { Link as GatsbyLink } from "gatsby"
+import { useStaticQuery, graphql, Link as GatsbyLink } from "gatsby"
 import Container from "./Container"
 import Logo from "./Logo"
 
@@ -17,6 +17,16 @@ const Header = props => {
   const { toggleColorMode } = useColorMode()
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
   const bg = useColorModeValue("white", "gray.700")
+
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
 
   return (
     <chakra.header
@@ -44,7 +54,7 @@ const Header = props => {
               <Logo />
               <chakra.span sx={{ display: "none" }}>Homepage</chakra.span>
             </GatsbyLink>
-            <Heading ml={5} as="h1">My Site</Heading>
+            <Heading ml={5} as="h1">{data.site.siteMetadata?.title}</Heading>
             {/* <PrimaryNav
               menuData={menuData.allContentfulMenu.nodes[0].menuSections}
             /> */}
