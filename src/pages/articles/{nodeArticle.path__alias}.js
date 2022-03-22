@@ -86,9 +86,9 @@ const Article = ({ data }) => {
                 />
               </Box>
               <Box mt={5}>
-                <p
+                <div
                   dangerouslySetInnerHTML={{ __html: article.body.processed }}
-                ></p>
+                />
               </Box>
             </Box>
           </Box>
