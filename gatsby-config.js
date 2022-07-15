@@ -31,6 +31,10 @@ module.exports = {
           password: process.env.BASIC_AUTH_PASSWORD,
         },
         fastBuilds: true,
+        filters: {
+          // collection : filter
+          "file--file": "filter[status][value]=1",
+        },
       },
     },
   ]
