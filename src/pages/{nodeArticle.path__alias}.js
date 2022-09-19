@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import Container from "../../components/Container";
-import Layout from "../../components/Layout";
+import Container from "../components/Container";
+import Layout from "../components/Layout";
 import {
   Box,
   Img,
