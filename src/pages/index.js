@@ -6,7 +6,6 @@ import {
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Container from "../components/Container";
-//import Meta from "../components/Meta";
 import ArticlePreview from "../components/ArticlePreview";
 
 const Home = ({ data }) => {
@@ -14,7 +13,6 @@ const Home = ({ data }) => {
 
   return (
     <Layout>
-      {/* <Meta title="My Blog Site" description="An example blog site stareter." /> */}
       <Box
         pt={30}
         width={`100%`}
@@ -27,10 +25,7 @@ const Home = ({ data }) => {
               key={article.id}
               title={article.title}
               path={article.path.alias}
-              image={
-                article.relationships.field_image.localFile.childImageSharp
-                  .gatsbyImageData
-              }
+              image={article.relationships.field_image.gatsbyImage}
               alt={article.field_image.alt}
               summary={
                 article.body.summary
@@ -48,7 +43,7 @@ const Home = ({ data }) => {
 
 export const pageQuery = graphql`
   {
-    allNodeArticle(sort: { fields: created, order: DESC }, limit: 10) {
+    allNodeArticle(sort: { created: DESC }, limit: 10) {
       nodes {
         id
         title
@@ -65,11 +60,7 @@ export const pageQuery = graphql`
         }
         relationships {
           field_image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 600)
-              }
-            }
+            gatsbyImage(width: 600)
           }
           field_tags {
             id

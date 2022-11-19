@@ -26,7 +26,12 @@ const Article = ({ data }) => {
         borderBottomWidth="1px"
       >
         <Container mt="0">
-          <Box as="section" bg={mode("gray.50", "inherit")} py="24" width={`800px`}>
+          <Box
+            as="section"
+            bg={mode("gray.50", "inherit")}
+            py="24"
+            width={`800px`}
+          >
             <Box
               maxW={{ base: "xl", md: "7xl" }}
               mx="auto"
@@ -71,10 +76,7 @@ const Article = ({ data }) => {
               >
                 <Img
                   as={GatsbyImage}
-                  image={
-                    article.relationships.field_image.localFile.childImageSharp
-                      .gatsbyImageData
-                  }
+                  image={article.relationships.field_image.gatsbyImage}
                   w="full"
                   h="full"
                   objectFit="cover"
@@ -111,11 +113,7 @@ export const query = graphql`
       }
       relationships {
         field_image {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(width: 600)
-            }
-          }
+          gatsbyImage(width: 600)
         }
         field_tags {
           id
